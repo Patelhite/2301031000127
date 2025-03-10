@@ -1,0 +1,119 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Fashion Ecommerce</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #3b2f2f;
+        }
+    </style>
+</head>
+<body class="text-white">
+    <div class="container mx-auto p-4">
+        <!-- Header -->
+        <header class="flex justify-between items-center py-4">
+            <div class="flex items-center space-x-4">
+                <img alt="Fashion Ecommerce Logo" class="w-12 h-12 rounded-full" height="50" src="https://storage.googleapis.com/a1aa/image/BPYSqpWaOlTuxG6DAWgcDtyUJ3oon5e6849m50PW_gY.jpg" width="50"/>
+                <div class="text-2xl font-bold">Fashion Ecommerce</div>
+            </div>
+            <nav class="space-x-4">
+                <a class="hover:text-gray-400" href="#">Home</a>
+                <a class="hover:text-gray-400" href="#">Shop</a>
+                <a class="hover:text-gray-400" href="#">About</a>
+                <a class="hover:text-gray-400" href="#">Contact</a>
+            </nav>
+            <div class="relative">
+                <button class="relative" id="cart-button">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="absolute top-0 right-0 bg-red-600 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center" id="cart-count">0</span>
+                </button>
+                <div class="hidden absolute right-0 mt-2 w-48 bg-white text-black rounded shadow-lg" id="cart-dropdown">
+                    <div class="p-4">
+                        <h2 class="font-bold mb-2">Cart</h2>
+                        <ul class="mb-2" id="cart-items">
+                            <!-- Cart items will be added here -->
+                        </ul>
+                        <button class="bg-purple-600 text-white py-2 px-4 rounded hover:bg-purple-700 w-full" id="checkout-button">Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Hero Section -->
+        <section class="text-center py-16 bg-cover bg-center" style="background-image: url('https://storage.googleapis.com/a1aa/image/AlT3Q9Pg6isndTkSABv1zfeDDRQjQ7Y-Y-3JFtDreYg.jpg');">
+            <div class="bg-black bg-opacity-50 p-8 rounded">
+                <h1 class="text-4xl font-bold mb-4">New Season Collection</h1>
+                <p class="text-lg mb-8">Discover the latest trends in fashion</p>
+                <button class="bg-purple-600 text-white py-2 px-4 rounded hover:bg-purple-700">Shop Now</button>
+            </div>
+        </section>
+        <!-- Product Grid -->
+        <section class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 py-8">
+            <!-- Product Item -->
+            <div class="bg-white text-black p-4 rounded shadow-lg">
+                <img alt="Fashionable dress on a mannequin" class="w-full mb-4 rounded" height="300" src="https://storage.googleapis.com/a1aa/image/6t4DNerax5L1hEfArc-SYogpyPWXlsb1BJOOkuwo_Yo.jpg" width="200"/>
+                <h2 class="text-lg font-bold mb-2">Elegant Dress</h2>
+                <p class="text-gray-700 mb-2">$49.99</p>
+                <button class="bg-purple-600 text-white py-2 px-4 rounded hover:bg-purple-700 add-to-cart">Add to Cart</button>
+            </div>
+            <!-- Repeat for other products -->
+            <div class="bg-white text-black p-4 rounded shadow-lg">
+                <img alt="Stylish jacket on a hanger" class="w-full mb-4 rounded" height="300" src="https://storage.googleapis.com/a1aa/image/6t4DNerax5L1hEfArc-SYogpyPWXlsb1BJOOkuwo_Yo.jpg" width="200"/>
+                <h2 class="text-lg font-bold mb-2">Stylish Jacket</h2>
+                <p class="text-gray-700 mb-2">$69.99</p>
+                <button class="bg-purple-600 text-white py-2 px-4 rounded hover:bg-purple-700 add-to-cart">Add to Cart</button>
+            </div>
+            <div class="bg-white text-black p-4 rounded shadow-lg">
+                <img alt="Casual shirt on a hanger" class="w-full mb-4 rounded" height="300" src="https://storage.googleapis.com/a1aa/image/6t4DNerax5L1hEfArc-SYogpyPWXlsb1BJOOkuwo_Yo.jpg" width="200"/>
+                <h2 class="text-lg font-bold mb-2">Casual Shirt</h2>
+                <p class="text-gray-700 mb-2">$29.99</p>
+                <button class="bg-purple-600 text-white py-2 px-4 rounded hover:bg-purple-700 add-to-cart">Add to Cart</button>
+            </div>
+            <div class="bg-white text-black p-4 rounded shadow-lg">
+                <img alt="Pair of trendy shoes" class="w-full mb-4 rounded" height="300" src="https://storage.googleapis.com/a1aa/image/6t4DNerax5L1hEfArc-SYogpyPWXlsb1BJOOkuwo_Yo.jpg" width="200"/>
+                <h2 class="text-lg font-bold mb-2">Trendy Shoes</h2>
+                <p class="text-gray-700 mb-2">$39.99</p>
+                <button class="bg-purple-600 text-white py-2 px-4 rounded hover:bg-purple-700 add-to-cart">Add to Cart</button>
+            </div>
+        </section>
+        <!-- Footer -->
+        <footer class="text-center py-8">
+            <p>© 2023 Fashion Ecommerce. All rights reserved.</p>
+        </footer>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cartButton = document.getElementById('cart-button');
+            const cartDropdown = document.getElementById('cart-dropdown');
+            const cartCount = document.getElementById('cart-count');
+            const cartItems = document.getElementById('cart-items');
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+            let cart = [];
+
+            cartButton.addEventListener('click', () => {
+                cartDropdown.classList.toggle('hidden');
+            });
+
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const product = e.target.closest('div');
+                    const productName = product.querySelector('h2').innerText;
+                    const productPrice = product.querySelector('p').innerText;
+
+                    const cartItem = document.createElement('li');
+                    cartItem.classList.add('flex', 'justify-between', 'mb-2');
+                    cartItem.innerHTML = `<span>${productName}</span><span>${productPrice}</span>`;
+                    cartItems.appendChild(cartItem);
+
+                    cart.push({ name: productName, price: productPrice });
+                    cartCount.innerText = cart.length;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
